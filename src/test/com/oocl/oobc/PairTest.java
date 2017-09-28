@@ -29,6 +29,4 @@ public class PairTest {
         GoldLength length2 = new GoldLength(10);
         Assert.assertNotEquals(length1,length2);
     }
-
-
 }

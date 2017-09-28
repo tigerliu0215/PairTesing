@@ -1,0 +1,27 @@
+Task1
+given
+	2 are 10CM
+when
+then
+	equal
+	
+Task 2
+given
+	1 is 10CM, another is 9CM
+when
+then 
+	not equal
+
+Task3
+given 
+	1 is 10CM, another is 10M
+when 
+then 
+	throw exception, cannot support different unit	
+
+Task4
+given
+	2 are -1CM
+when 
+then
+	throw exception, length cannot be negitive

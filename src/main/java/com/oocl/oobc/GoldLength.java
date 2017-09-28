@@ -6,7 +6,7 @@ public class GoldLength {
     private int value;
 
     public GoldLength(int value) {
-        
+        this.value = value;
     }
 
     public int getValue() {

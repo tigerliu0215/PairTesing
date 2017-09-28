@@ -1,0 +1,67 @@
+Task1
+when given
+	10CM, 10CM
+then 
+	equal
+
+Task2
+when given
+	10DM, 10DM
+then 
+	equal
+
+Task3
+when given
+	1M, 1M
+then 
+	equal
+
+Task4
+when given
+	1CM, 1M
+then 
+	not equal
+
+Task5
+when given
+	1CM, 1DM
+then 
+	not equal
+
+Task6
+when given
+	1M, 1DM
+then 
+	not equal
+
+Task7
+when given
+	10CM, 1DM
+then 
+	equal
+	
+
+Task8
+when given
+	100CM, 1M
+then 
+	equal
+	
+Task9
+when given
+	10DM, 1M
+then 
+	equal
+
+Task10
+when given
+	-1CM, -1CM
+then 
+	throw exception, length cannot be negative
+
+Task11
+when given
+	100MM, 100MM
+then 
+	throw exception, unit just support CM,DM,M
+	
