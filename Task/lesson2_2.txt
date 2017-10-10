@@ -1,0 +1,41 @@
+停车小弟
+
+task1
+    given 2 parking lot each have 16 parking space
+    when get parking lot number
+    then return 2
+
+task2
+    given 2 parking lot each have 16 parking space
+    when get total parking space number
+    then return 32
+
+task3
+     given 2 parking lot each have 16 parking space, no car parking
+     when parking 1 car
+     then return parking success (true)
+
+task4
+     given 2 parking lot each have 16 parking space, no car parking
+     when parking 1 car
+     then available parking space = 31
+
+task5
+     given 2 parking lot each have 16 parking space, parking lot 1 has 2 cars and parking lot 2 has 2 cars
+     when parking 1 car
+     then parking lot 1 has 3 cars
+
+task6
+     given 2 parking lot each have 16 parking space, parking lot 1 has 16 cars and parking lot 2 has 16 cars
+     when parking 1 car
+     then throw exception, no space.
+
+task7
+     given 2 parking lot each have 16 parking space, car "123" in parking lot 1
+     when pickup car "123"
+     then pickup success(true)
+
+task8
+     given 2 parking lot each have 16 parking space, car "123" not in parking lot
+     when pickup car "123"
+     then pickup failed(false)

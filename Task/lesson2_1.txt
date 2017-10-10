@@ -1,0 +1,41 @@
+停车，取车，知道多少空车位
+
+task1
+    given 16 parking number and 0 car parking
+    when parking 1 car
+    then return parking success(true)
+
+task2
+    given 16 parking number and 0 car parking, 1 car into
+    when parking this car
+    then available parking number = 15
+
+task3
+     given 16 parking number and 16 car parking, 1 car into
+     when parking this car
+     then return parking fail(false)
+
+task4
+    given 1 car out with key "123", and this car in the parking lots
+    when pick up the car
+    then  and return pickup success (true)
+
+task5
+    given 16 parking space , and only this car in the parking lots
+    when pick up the car with key "123"
+    then available parking number = 16
+
+task6
+    given 16 parking space and have no car in it
+    when parking a car with key ""
+    then throw exception , car not parking car without License Plate
+
+task7
+    given 1 car out with key "123", no car in this parking lot
+    when pick up the car
+    then throw exception , car not found
+
+task8
+    given 1 car out with key "123", 2 car in this parking lot but its not "123"
+    when pick up the car
+    then throw exception , car not found
