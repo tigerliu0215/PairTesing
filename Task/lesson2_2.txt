@@ -1,41 +1,44 @@
 停车小弟
+    hold 多个停车场
+    按顺序停车
+    取车
 
 task1
-    given 2 parking lot each have 16 parking space
-    when get parking lot number
-    then return 2
-
-task2
     given 2 parking lot each have 16 parking space
     when get total parking space number
     then return 32
 
-task3
+task2
      given 2 parking lot each have 16 parking space, no car parking
      when parking 1 car
-     then return parking success (true)
+     then return key(parking lot name_license Plate)
 
-task4
+task3
      given 2 parking lot each have 16 parking space, no car parking
      when parking 1 car
      then available parking space = 31
 
-task5
+task4
      given 2 parking lot each have 16 parking space, parking lot 1 has 2 cars and parking lot 2 has 2 cars
      when parking 1 car
-     then parking lot 1 has 3 cars
+     then parking lot 1 has 13 available space
 
-task6
+task5
      given 2 parking lot each have 16 parking space, parking lot 1 has 16 cars and parking lot 2 has 16 cars
      when parking 1 car
      then throw exception, no space.
 
-task7
+task6
      given 2 parking lot each have 16 parking space, car "123" in parking lot 1
      when pickup car "123"
-     then pickup success(true)
+     then return car "123"
 
-task8
+task7
      given 2 parking lot each have 16 parking space, car "123" not in parking lot
      when pickup car "123"
-     then pickup failed(false)
+     then throw exception, no car found
+
+task8
+     given 2 parking lot each have 16 parking space
+     when pickup car without key("" or null)
+     then throw exception, invalid key

@@ -5,12 +5,14 @@ import java.util.Map;
 
 public class ParkingLot {
     private int availableSpace;
+    private String name;
 
     private Map<String, Car> cars;
 
-    public ParkingLot(int totalSpace) {
+    public ParkingLot(int totalSpace, String name) {
         this.availableSpace = totalSpace;
         cars = new HashMap<>();
+        this.name = name;
     }
 
     public String parkCar(Car car) {
@@ -22,9 +24,9 @@ public class ParkingLot {
             throw new ParkingLotException(Constants.EX_PARKING_WITHOUT_LICENSE_PLATE);
         }
 
-        cars.put(car.getLicensePlateNumber(),car);
+        cars.put(this.name + "_" + car.getLicensePlateNumber(),car);
         this.availableSpace --;
-        return car.getLicensePlateNumber();
+        return this.name + "_" + car.getLicensePlateNumber();
     }
 
     public Car pickupCar(String key) {
