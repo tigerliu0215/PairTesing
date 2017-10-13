@@ -1,0 +1,15 @@
+smart parkingboy停车小弟
+    hold 多个停车场
+    取车
+    能够停在空车位最多的停车场
+
+
+task1
+     given 2 parking lot each have 16 parking space, parking lot 1 has 2 cars and parking lot 2 has 1 cars
+     when parking 1 car
+     then parking lot 2 can pick up this car
+
+task2
+     given 2 parking lot each have 16 parking space, parking lot 1 has 2 cars and parking lot 2 has 2 cars
+     when parking 1 car
+     then can pickup this car

@@ -39,6 +39,10 @@ public class ParkingLot {
           return car;
     }
 
+    public boolean isAbleToPickupCar(String key){
+        return cars.containsKey(key);
+    }
+
     public int getAvailableSpace() {
         return availableSpace;
     }

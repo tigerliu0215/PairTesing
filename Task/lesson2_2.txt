@@ -28,6 +28,7 @@ task5
      when parking 1 car
      then throw exception, no space.
 
+
 task6
      given 2 parking lot each have 16 parking space, car "123" in parking lot 1
      when pickup car "123"
