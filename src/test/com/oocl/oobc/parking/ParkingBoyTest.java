@@ -30,14 +30,14 @@ public class ParkingBoyTest {
     public void should_return_A123_when_parking_123_given_2_parkinglot_16_space(){
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
-        Assert.assertEquals("A_123",boy.parkingCar(car));
+        Assert.assertEquals("A_123",boy.parkCar(car));
     }
 
     @Test
     public void should_return_31_when_parking_123_given_2_parkinglot_16_space(){
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
-        boy.parkingCar(car);
+        boy.parkCar(car);
         Assert.assertEquals(31,boy.getAvailableSpace());
     }
 
@@ -58,7 +58,7 @@ public class ParkingBoyTest {
 
         ParkingBoy boy = new ParkingBoy(parkingLotList);
         Car car = new Car("123");
-        boy.parkingCar(car);
+        boy.parkCar(car);
         Assert.assertEquals(13,parkingLotA.getAvailableSpace());
     }
 
@@ -68,17 +68,17 @@ public class ParkingBoyTest {
         expectedEx.expectMessage(Constants.EX_PARKING_NO_SPACE);
         ParkingBoy boy = createParkingBoy();
         for(int i = 0; i< 32 ; i++){
-            boy.parkingCar(new Car(i+"1"));
+            boy.parkCar(new Car(i+"1"));
         }
         Car car = new Car("123");
-        boy.parkingCar(car);
+        boy.parkCar(car);
     }
 
     @Test
     public void should_return_car123_when_pickup_car123_given_car123_in_parkinglot_A(){
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
-        boy.parkingCar(car);
+        boy.parkCar(car);
         Assert.assertEquals(car,boy.pickupCar("A_123"));
     }
 
@@ -88,7 +88,7 @@ public class ParkingBoyTest {
         expectedEx.expectMessage(Constants.EX_PICKUP_CAR_NOT_FOUND);
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("1");
-        boy.parkingCar(car);
+        boy.parkCar(car);
         boy.pickupCar("A_123");
     }
 
@@ -98,7 +98,7 @@ public class ParkingBoyTest {
         expectedEx.expectMessage(Constants.EX_PICKUP_INVALID_KEY);
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
-        boy.parkingCar(car);
+        boy.parkCar(car);
         boy.pickupCar("");
     }
 }

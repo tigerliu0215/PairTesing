@@ -10,6 +10,16 @@ task1
      then parking lot 2 can pick up this car
 
 task2
-     given 2 parking lot each have 16 parking space, parking lot 1 has 2 cars and parking lot 2 has 2 cars
+     given 2 parking lot each have 16 parking space, not available space in parking lot
      when parking 1 car
-     then can pickup this car
+     then throw exception, no space
+
+task3
+     given 2 parking lot each have 16 parking space, car123 in parking lot
+     when pick up car 123
+     then success to pickup this car
+
+task4
+     given 2 parking lot each have 16 parking space, car123 not in parking lot
+     when pick up car 123
+     then throw exception, car not found

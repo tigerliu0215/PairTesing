@@ -46,4 +46,8 @@ public class ParkingLot {
     public int getAvailableSpace() {
         return availableSpace;
     }
+
+    protected double getVacancyRate(){
+        return (this.availableSpace * 100d) / ((this.availableSpace + cars.entrySet().size()) * 100d);
+    }
 }

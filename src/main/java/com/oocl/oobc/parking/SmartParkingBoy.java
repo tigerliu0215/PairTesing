@@ -9,6 +9,9 @@ public class SmartParkingBoy extends ParkingBoy {
 
     public String parkCar(Car car) {
         ParkingLot maxAvailableSpaceParkingLot = getMaxAvailableSpaceParkingLot();
+        if(maxAvailableSpaceParkingLot == null){
+            throw new ParkingLotException(Constants.EX_PARKING_NO_SPACE);
+        }
         return maxAvailableSpaceParkingLot.parkCar(car);
 
     }

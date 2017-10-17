@@ -1,0 +1,25 @@
+super parking boy停车小弟
+    hold 多个停车场
+    取车
+    能够停在空车率最高的停车场
+
+
+task1
+     given 2 parking lot each have 16 parking space and 10 parking space, parking lot 1 has 8 cars and parking lot 2 has 2 cars
+     when parking 1 car
+     then parking lot 2 can pick up this car
+
+task2
+     given 2 parking lot each have 16 parking space and 10 parking space, all has no available space
+     when parking 1 car
+     then throw exception, no space
+
+task3
+     given 2 parking lot each have 16 parking space and 10 parking space, car 123 in parking lot 1
+     when pick up car 123
+     then pick up car 123 success
+
+task4
+     given 2 parking lot each have 16 parking space and 10 parking space, no car in above parking lot
+     when pick up car 123
+     then throw exception, no car found

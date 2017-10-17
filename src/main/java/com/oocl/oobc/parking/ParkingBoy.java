@@ -20,7 +20,7 @@ public class ParkingBoy {
         return availableSpace;
     }
 
-    public String parkingCar(Car car) {
+    public String parkCar(Car car) {
         if(getAvailableSpace() <= 0){
             throw new ParkingLotException(EX_PARKING_NO_SPACE);
         }
@@ -33,6 +33,7 @@ public class ParkingBoy {
         for(ParkingLot parkingLot : parkingLotList){
             if(parkingLot.getAvailableSpace() > 0){
                firstAvailableParkingLot = parkingLot;
+               break;
             }
         }
         return firstAvailableParkingLot;
