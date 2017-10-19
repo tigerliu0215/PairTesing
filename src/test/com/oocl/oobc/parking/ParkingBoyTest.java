@@ -31,7 +31,7 @@ public class ParkingBoyTest {
     public void should_return_A123_when_parking_123_given_2_parkinglot_16_space() {
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
-        Assert.assertEquals("A_123", boy.parkCar(car));
+        Assert.assertEquals(new Ticket("A","123"), boy.parkCar(car));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class ParkingBoyTest {
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
         boy.parkCar(car);
-        Assert.assertEquals(car, boy.pickupCar("A_123"));
+        Assert.assertEquals(car, boy.pickupCar(new Ticket("A","123")));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class ParkingBoyTest {
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("1");
         boy.parkCar(car);
-        boy.pickupCar("A_123");
+        boy.pickupCar(new Ticket("A","123"));
     }
 
     @Test
@@ -100,6 +100,6 @@ public class ParkingBoyTest {
         ParkingBoy boy = createParkingBoy();
         Car car = new Car("123");
         boy.parkCar(car);
-        boy.pickupCar("");
+        boy.pickupCar(null);
     }
 }

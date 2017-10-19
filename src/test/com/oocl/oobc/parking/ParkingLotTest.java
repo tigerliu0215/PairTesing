@@ -11,10 +11,18 @@ public class ParkingLotTest {
     public ExpectedException expectedEx = ExpectedException.none();
 
     @Test
+    public void should_throw_exception_when_totalspace_less_or_equal_0() throws Exception {
+        expectedEx.expect(ParkingLotException.class);
+        expectedEx.expectMessage(Constants.EX_INVALID_TOTAL_SPACE);
+        ParkingLot parkingLot = new ParkingLot(0, "A");
+    }
+
+    @Test
     public void should_return_key123_when_no_car_parking() {
         ParkingLot parkingLot = new ParkingLot(16, "A");
         Car car = new Car("123");
-        Assert.assertEquals("A_123", parkingLot.parkCar(car));
+        Ticket ticket = new Ticket("A", "123") ;
+        Assert.assertEquals(ticket, parkingLot.parkCar(car));
     }
 
     @Test
@@ -44,7 +52,7 @@ public class ParkingLotTest {
         Car car = new Car("123");
         parkingLot.parkCar(car);
 
-        Assert.assertEquals(car, parkingLot.pickupCar("A_123"));
+        Assert.assertEquals(car, parkingLot.pickupCar(new Ticket("A","123")));
     }
 
     @Test
@@ -52,7 +60,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(16, "A");
         Car car = new Car("123");
         parkingLot.parkCar(car);
-        parkingLot.pickupCar("A_123");
+        parkingLot.pickupCar(new Ticket("A","123"));
         Assert.assertEquals(16, parkingLot.getAvailableSpace());
     }
 
@@ -70,7 +78,7 @@ public class ParkingLotTest {
         expectedEx.expect(ParkingLotException.class);
         expectedEx.expectMessage(Constants.EX_PICKUP_CAR_NOT_FOUND);
         ParkingLot parkingLot = new ParkingLot(16, "A");
-        parkingLot.pickupCar("123");
+        parkingLot.pickupCar(new Ticket("A","123"));
     }
 
     @Test
@@ -80,7 +88,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(16, "A");
         parkingLot.parkCar(new Car("111"));
         parkingLot.parkCar(new Car("222"));
-        parkingLot.pickupCar("123");
+        parkingLot.pickupCar(new Ticket("A","123"));
     }
 
 }

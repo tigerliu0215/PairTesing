@@ -4,50 +4,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-    private int availableSpace;
+    private int totalSpace;
     private String name;
 
-    private Map<String, Car> cars;
+    private Map<Ticket, Car> cars;
 
     public ParkingLot(int totalSpace, String name) {
-        this.availableSpace = totalSpace;
+        if(totalSpace <= 0){
+            throw new ParkingLotException(Constants.EX_INVALID_TOTAL_SPACE);
+        }
+        this.totalSpace = totalSpace;
         cars = new HashMap<>();
         this.name = name;
     }
 
-    public String parkCar(Car car) {
-        if (availableSpace <= 0) {
+    public Ticket parkCar(Car car) {
+        if (this.getAvailableSpace() <= 0) {
             throw new ParkingLotException(Constants.EX_PARKING_NO_SPACE);
         }
 
         if (null == car.getLicensePlateNumber() || "".equals(car.getLicensePlateNumber())) {
             throw new ParkingLotException(Constants.EX_PARKING_WITHOUT_LICENSE_PLATE);
         }
-
-        cars.put(this.name + "_" + car.getLicensePlateNumber(), car);
-        this.availableSpace--;
-        return this.name + "_" + car.getLicensePlateNumber();
+        Ticket ticket = new Ticket(this.name, car.getLicensePlateNumber());
+        cars.put(ticket, car);
+        return ticket;
     }
 
-    public Car pickupCar(String key) {
-        Car car = cars.get(key);
+    public Car pickupCar(Ticket ticket) {
+        Car car = cars.get(ticket);
         if (car == null) {
             throw new ParkingLotException(Constants.EX_PICKUP_CAR_NOT_FOUND);
         }
-        cars.remove(key);
-        availableSpace++;
+        cars.remove(ticket);
         return car;
     }
 
-    public boolean isAbleToPickupCar(String key) {
-        return cars.containsKey(key);
+    public boolean isAbleToPickupCar(Ticket ticket) {
+        return cars.containsKey(ticket);
     }
 
     public int getAvailableSpace() {
-        return availableSpace;
+        return totalSpace - cars.size();
     }
 
     protected double getVacancyRate() {
-        return (this.availableSpace * 100d) / ((this.availableSpace + cars.entrySet().size()) * 100d);
+        return this.getAvailableSpace() * 100d / this.totalSpace;
     }
 }

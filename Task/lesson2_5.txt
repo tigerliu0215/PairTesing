@@ -1,0 +1,35 @@
+停车场经理
+    管理多个停车小弟
+    管理多个停车场
+    可以自己停车，也可以让小弟停车
+    取车
+
+task1
+     given 3 parking lot each has 16 parking space
+     when parking manager park 1 car 123
+     then can pickup this car by parking manager
+
+task2
+    given 3 parking lot each has 16 parking space, three parking boy under parking manager
+    when manager let parking boy park 1 car 123
+    then can pickup this car by parking manager
+
+task3
+     given 3 parking lot each has 16 parking space,no available space now
+     when manager park 1 car 123
+     then throw exception, no available space
+
+task4
+     given 3 parking lot each has 16 parking space, three parking boy under parking manager, car 123 in the parking lot
+     when parking manager pickup 1 car 123
+     then can pick up this car
+
+task 5
+     given 3 parking lot each has 16 parking space, three parking boy under parking manager, car 123 in the parking lot
+     when parking manager let parking boy pickup 1 car 123
+     then can pick up this car
+
+task 6
+     given 3 parking lot each has 16 parking space, three parking boy under parking manager, car 123 not in the parking lot
+     when parking manager pickup 1 car 123
+     then throw exception, car not found

@@ -36,7 +36,7 @@ public class SmartParkingBoyTest {
         Car car = new Car("123");
         smartParkingBoy.parkCar(car);
 
-        Assert.assertEquals(car,parkingLotB.pickupCar("B_123"));
+        Assert.assertEquals(car,parkingLotB.pickupCar(new Ticket("B","123")));
     }
 
     @Test
@@ -59,9 +59,9 @@ public class SmartParkingBoyTest {
 
         SmartParkingBoy smartParkingBoy = initSmartParkingBoy(parkingLotA,parkingLotB);
         Car car = new Car("123");
-        String key = smartParkingBoy.parkCar(car);
+        Ticket ticket = smartParkingBoy.parkCar(car);
 
-        Assert.assertEquals(car,smartParkingBoy.pickupCar(key));
+        Assert.assertEquals(car,smartParkingBoy.pickupCar(ticket));
     }
 
 
@@ -74,6 +74,6 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLotB = initParkingLot(16,"B",16);
 
         SmartParkingBoy smartParkingBoy = initSmartParkingBoy(parkingLotA,parkingLotB);
-        smartParkingBoy.pickupCar("B_123");
+        smartParkingBoy.pickupCar(new Ticket("A","123"));
     }
 }

@@ -2,12 +2,13 @@ package com.oocl.oobc.parking;
 
 import java.util.List;
 
-public class SuperParkingBoy extends ParkingBoy {
+public class SuperParkingBoy extends ParkingBoyBase {
     public SuperParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 
-    public String parkCar(Car car) {
+    @Override
+    public Ticket parkCar(Car car) {
         ParkingLot maxVacancyRateParkingLot = getMaxVacancyRateParkingLot();
         if (maxVacancyRateParkingLot == null) {
             throw new ParkingLotException(Constants.EX_PARKING_NO_SPACE);

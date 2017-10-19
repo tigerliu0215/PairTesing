@@ -20,8 +20,8 @@ public class SuperParkingBoyTest {
         ParkingLot parkingLotB = initParkingLot(10, "B", 2);
         superParkingBoy = initSuperParkingBoy(parkingLotA, parkingLotB);
         Car car = new Car("123");
-        String ticket = superParkingBoy.parkCar(car);
-        Assert.assertEquals(car, parkingLotB.pickupCar("B_123"));
+        Ticket ticket = superParkingBoy.parkCar(car);
+        Assert.assertEquals(car, parkingLotB.pickupCar(ticket));
     }
 
     @Test
@@ -37,6 +37,7 @@ public class SuperParkingBoyTest {
         superParkingBoy.parkCar(car);
     }
 
+
     @Test
     public void should_pick_up_a_car_success_when_it_in_the_parking_lot() throws Exception {
         SuperParkingBoy superParkingBoy;
@@ -44,8 +45,8 @@ public class SuperParkingBoyTest {
         ParkingLot parkingLotB = initParkingLot(10, "B", 0);
         superParkingBoy = initSuperParkingBoy(parkingLotA, parkingLotB);
         Car car = new Car("123");
-        String key = superParkingBoy.parkCar(car);
-        Assert.assertEquals(car,superParkingBoy.pickupCar(key));
+        Ticket ticket = superParkingBoy.parkCar(car);
+        Assert.assertEquals(car,superParkingBoy.pickupCar(ticket));
     }
 
 
@@ -58,8 +59,10 @@ public class SuperParkingBoyTest {
         ParkingLot parkingLotA = initParkingLot(16, "A", 16);
         ParkingLot parkingLotB = initParkingLot(10, "B", 10);
         superParkingBoy = initSuperParkingBoy(parkingLotA, parkingLotB);
-        superParkingBoy.pickupCar("B_123");
+        Ticket notExistTicket = new Ticket("A", "123");
+        superParkingBoy.pickupCar(notExistTicket);
     }
+
 
     private ParkingLot initParkingLot(int totalSpace, String parkingLotName, int parkedCar) {
         ParkingLot parkingLot = new ParkingLot(totalSpace, parkingLotName);
