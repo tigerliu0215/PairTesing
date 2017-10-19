@@ -4,8 +4,8 @@ public class GoldLengthWithUnit {
     private int value;
     private String unit;
 
-    public GoldLengthWithUnit(int value,String unit) {
-        if(value <= 0 ){
+    public GoldLengthWithUnit(int value, String unit) {
+        if (value <= 0) {
             throw new RuntimeException("Length cannot be negative.");
         }
         this.value = value;
@@ -34,7 +34,7 @@ public class GoldLengthWithUnit {
         if (o == null || getClass() != o.getClass()) return false;
 
         GoldLengthWithUnit that = (GoldLengthWithUnit) o;
-        if(!unit.equals(that.unit)){
+        if (!unit.equals(that.unit)) {
             throw new RuntimeException("Can not compare with different unit.");
         }
         if (value != that.value) return false;

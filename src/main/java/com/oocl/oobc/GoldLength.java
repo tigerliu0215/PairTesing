@@ -15,11 +15,11 @@ public class GoldLength {
 
     @Override
     public boolean equals(Object obj) {
-        return this.getValue() == ((GoldLength)obj).getValue();
+        return this.getValue() == ((GoldLength) obj).getValue();
     }
 
     @Override
     public int hashCode() {
-        return this.getValue()*10;
+        return this.getValue() * 10;
     }
 }

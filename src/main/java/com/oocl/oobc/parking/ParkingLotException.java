@@ -1,6 +1,6 @@
 package com.oocl.oobc.parking;
 
-public class ParkingLotException extends RuntimeException{
+public class ParkingLotException extends RuntimeException {
     public ParkingLotException() {
     }
 

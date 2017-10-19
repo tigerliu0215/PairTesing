@@ -16,30 +16,30 @@ public class ParkingLot {
     }
 
     public String parkCar(Car car) {
-        if(availableSpace <= 0 ){
+        if (availableSpace <= 0) {
             throw new ParkingLotException(Constants.EX_PARKING_NO_SPACE);
         }
 
-        if(null == car.getLicensePlateNumber() || "".equals(car.getLicensePlateNumber())) {
+        if (null == car.getLicensePlateNumber() || "".equals(car.getLicensePlateNumber())) {
             throw new ParkingLotException(Constants.EX_PARKING_WITHOUT_LICENSE_PLATE);
         }
 
-        cars.put(this.name + "_" + car.getLicensePlateNumber(),car);
-        this.availableSpace --;
+        cars.put(this.name + "_" + car.getLicensePlateNumber(), car);
+        this.availableSpace--;
         return this.name + "_" + car.getLicensePlateNumber();
     }
 
     public Car pickupCar(String key) {
-          Car car = cars.get(key);
-          if(car == null ){
-              throw new ParkingLotException(Constants.EX_PICKUP_CAR_NOT_FOUND);
-          }
-          cars.remove(key);
-          availableSpace ++;
-          return car;
+        Car car = cars.get(key);
+        if (car == null) {
+            throw new ParkingLotException(Constants.EX_PICKUP_CAR_NOT_FOUND);
+        }
+        cars.remove(key);
+        availableSpace++;
+        return car;
     }
 
-    public boolean isAbleToPickupCar(String key){
+    public boolean isAbleToPickupCar(String key) {
         return cars.containsKey(key);
     }
 
@@ -47,7 +47,7 @@ public class ParkingLot {
         return availableSpace;
     }
 
-    protected double getVacancyRate(){
+    protected double getVacancyRate() {
         return (this.availableSpace * 100d) / ((this.availableSpace + cars.entrySet().size()) * 100d);
     }
 }

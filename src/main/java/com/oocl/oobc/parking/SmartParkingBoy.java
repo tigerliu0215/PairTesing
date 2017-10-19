@@ -9,7 +9,7 @@ public class SmartParkingBoy extends ParkingBoy {
 
     public String parkCar(Car car) {
         ParkingLot maxAvailableSpaceParkingLot = getMaxAvailableSpaceParkingLot();
-        if(maxAvailableSpaceParkingLot == null){
+        if (maxAvailableSpaceParkingLot == null) {
             throw new ParkingLotException(Constants.EX_PARKING_NO_SPACE);
         }
         return maxAvailableSpaceParkingLot.parkCar(car);
@@ -19,8 +19,8 @@ public class SmartParkingBoy extends ParkingBoy {
     private ParkingLot getMaxAvailableSpaceParkingLot() {
         int maxAvailableSpace = 0;
         ParkingLot maxAvailableSpaceParkingLot = null;
-        for (ParkingLot parkingLot : this.parkingLotList){
-            if(parkingLot.getAvailableSpace() > maxAvailableSpace){
+        for (ParkingLot parkingLot : this.parkingLotList) {
+            if (parkingLot.getAvailableSpace() > maxAvailableSpace) {
                 maxAvailableSpace = parkingLot.getAvailableSpace();
                 maxAvailableSpaceParkingLot = parkingLot;
             }

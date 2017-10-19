@@ -14,14 +14,14 @@ public class ParkingBoy {
 
     public int getAvailableSpace() {
         int availableSpace = 0;
-        for(ParkingLot parkingLot : parkingLotList){
+        for (ParkingLot parkingLot : parkingLotList) {
             availableSpace += parkingLot.getAvailableSpace();
         }
         return availableSpace;
     }
 
     public String parkCar(Car car) {
-        if(getAvailableSpace() <= 0){
+        if (getAvailableSpace() <= 0) {
             throw new ParkingLotException(EX_PARKING_NO_SPACE);
         }
         ParkingLot firstAvailableParkingLot = getFirstAvailableParkingLot();
@@ -30,22 +30,22 @@ public class ParkingBoy {
 
     private ParkingLot getFirstAvailableParkingLot() {
         ParkingLot firstAvailableParkingLot = null;
-        for(ParkingLot parkingLot : parkingLotList){
-            if(parkingLot.getAvailableSpace() > 0){
-               firstAvailableParkingLot = parkingLot;
-               break;
+        for (ParkingLot parkingLot : parkingLotList) {
+            if (parkingLot.getAvailableSpace() > 0) {
+                firstAvailableParkingLot = parkingLot;
+                break;
             }
         }
         return firstAvailableParkingLot;
     }
 
     public Car pickupCar(String key) {
-        if(key == null || "".equals(key)){
+        if (key == null || "".equals(key)) {
             throw new ParkingLotException(Constants.EX_PICKUP_INVALID_KEY);
         }
 
         ParkingLot carInParkingLot = findParkingLotByCar(key);
-        if(carInParkingLot == null){
+        if (carInParkingLot == null) {
             throw new ParkingLotException(Constants.EX_PICKUP_CAR_NOT_FOUND);
         }
         return carInParkingLot.pickupCar(key);
@@ -53,8 +53,8 @@ public class ParkingBoy {
 
     private ParkingLot findParkingLotByCar(String key) {
         ParkingLot carInParkingLot = null;
-        for(ParkingLot parkingLot : parkingLotList){
-            if(parkingLot.isAbleToPickupCar(key)){
+        for (ParkingLot parkingLot : parkingLotList) {
+            if (parkingLot.isAbleToPickupCar(key)) {
                 carInParkingLot = parkingLot;
             }
         }
