@@ -1,5 +1,6 @@
 package com.oocl.oobc.parking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ParkingBoyBase implements ParkingAble{
@@ -37,5 +38,37 @@ public abstract class ParkingBoyBase implements ParkingAble{
             }
         }
         return carInParkingLot;
+    }
+
+    @Override
+    public boolean isAbleToPickupCar(Ticket ticket) {
+        for (ParkingLot parkingLot : this.parkingLotList){
+            boolean isAbleToPickupCar = parkingLot.isAbleToPickupCar(ticket);
+            if(isAbleToPickupCar) {
+                return isAbleToPickupCar;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public List<ParkingLotReportRow> generateReport() {
+        List<ParkingLotReportRow> rows = new ArrayList<>();
+        int totalSpace = getTotalSpace();
+        ParkingLotReportRow boyRow = new ParkingLotReportRow("B",totalSpace - this.getAvailableSpace(),totalSpace);
+        rows.add(boyRow);
+        for(ParkingLot parkingLot : parkingLotList){
+            rows.addAll(parkingLot.generateReport());
+        }
+        return rows;
+    }
+
+    @Override
+    public int getTotalSpace() {
+        int totalSpace = 0 ;
+        for(ParkingLot parkingLot : parkingLotList){
+            totalSpace += parkingLot.getTotalSpace();
+        }
+        return totalSpace;
     }
 }

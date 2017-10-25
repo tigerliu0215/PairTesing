@@ -1,0 +1,37 @@
+停车场主管
+    管理多个停车经理
+    打印报表
+
+task1
+     given 1 manager has 1 parking lot with 16 parking spaces and parked 2 cars, 1 parking boy has 1 parking lot with 16 parking spaces and parked 3 cars
+     when print report
+     then print successfully
+        M   5   32
+            P   2   16
+            B   3   16
+                P   3   16
+
+
+task2
+     given 2 managers each has 2 parking lot with 16 parking spaces and each parked 2 cars, 2 parking boys each has 2 parking lot with 16 parking spaces and each parked 3 cars
+     when print report
+     then print successfully
+         M  16  96
+            P   2   16
+            P   2   16
+            B   6   32
+                P   3   16
+                P   3   16
+            B   6   32
+                P   3   16
+                P   3   16
+         M  16  96
+             P   2   16
+             P   2   16
+             B   6   32
+                 P   3   16
+                 P   3   16
+             B   6   32
+                 P   3   16
+                 P   3   16
+

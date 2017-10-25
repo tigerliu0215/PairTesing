@@ -1,9 +1,11 @@
 package com.oocl.oobc.parking;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class ParkingLot {
+public class ParkingLot implements ParkingAble{
     private int totalSpace;
     private String name;
 
@@ -50,5 +52,16 @@ public class ParkingLot {
 
     protected double getVacancyRate() {
         return this.getAvailableSpace() * 100d / this.totalSpace;
+    }
+
+    @Override
+    public List<ParkingLotReportRow> generateReport() {
+        List<ParkingLotReportRow> rows = new ArrayList<>();
+        rows.add(new ParkingLotReportRow("P", cars.size(), totalSpace));
+        return rows;
+    }
+
+    public int getTotalSpace() {
+        return totalSpace;
     }
 }
