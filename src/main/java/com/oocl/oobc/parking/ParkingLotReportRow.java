@@ -3,7 +3,22 @@ package com.oocl.oobc.parking;
 public class ParkingLotReportRow {
     private String role;
     private int parkedCars;
+
     private int totalSpace;
+
+
+    public String getRole() {
+        return role;
+    }
+
+    public int getParkedCars() {
+        return parkedCars;
+    }
+
+    public int getTotalSpace() {
+        return totalSpace;
+    }
+
     public ParkingLotReportRow(String role, int parkedCars, int totalSpace) {
         this.role = role;
         this.parkedCars = parkedCars;

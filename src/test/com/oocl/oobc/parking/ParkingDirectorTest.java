@@ -87,7 +87,27 @@ public class ParkingDirectorTest {
                     {"B",6,32},
                         {"P",3,16},
                         {"P",3,16}});
-        String printFormat = "";
+        String printFormat = "M\t16\t96\n" +
+                "\tP\t2\t16\n" +
+                "\tP\t2\t16\n" +
+                "\tB\t6\t32\n" +
+                "\t\tP\t3\t16\n" +
+                "\t\tP\t3\t16\n" +
+                "\tB\t6\t32\n" +
+                "\t\tP\t3\t16\n" +
+                "\t\tP\t3\t16\n" +
+                "M\t16\t96\n" +
+                "\tP\t2\t16\n" +
+                "\tP\t2\t16\n" +
+                "\tB\t6\t32\n" +
+                "\t\tP\t3\t16\n" +
+                "\t\tP\t3\t16\n" +
+                "\tB\t6\t32\n" +
+                "\t\tP\t3\t16\n" +
+                "\t\tP\t3\t16\n";
+        System.out.println(report.toString());
+
+        Assert.assertEquals(printFormat, report.toString());
     }
 
     private ParkingLotReport initParkingLotReport(Object[][] reportParams) {

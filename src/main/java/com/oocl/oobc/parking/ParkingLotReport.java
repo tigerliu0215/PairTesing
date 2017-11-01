@@ -30,4 +30,27 @@ public class ParkingLotReport {
     public int hashCode() {
         return parkingLotReportRowList != null ? parkingLotReportRowList.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        String previousRole = "M";
+        int tabNum = 0;
+        for (ParkingLotReportRow parkingLotReportRow : this.parkingLotReportRowList){
+            if(!parkingLotReportRow.getRole().equals(previousRole) && !parkingLotReportRow.getRole().equals("M")){
+                tabNum += 1;
+            } else if ("M".equals(parkingLotReportRow.getRole())) {
+                tabNum = 0;
+            }
+            if("B".equals(parkingLotReportRow.getRole())){
+                tabNum = 1;
+            }
+            for(int i = 0 ; i < tabNum ; i++) {
+                sb.append("\t");
+            }
+            sb.append(parkingLotReportRow.getRole() + "\t" + parkingLotReportRow.getParkedCars() + "\t" + parkingLotReportRow.getTotalSpace() + "\n");
+            previousRole = parkingLotReportRow.getRole();
+        }
+        return sb.toString();
+    }
 }
